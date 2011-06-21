@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Template Documentation - vCard by ninetydegrees</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;vCard&rdquo; Documentation by &ldquo;ninetydegrees&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;vCard&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 03/03/2011<br>
+					By: ninetydegrees.co<br>
+					Email: <a href="mailto:hello@ninetydegrees.co">hello@ninetydegrees.co</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/ninetydegrees">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#htmlStructure">HTML Structure</a></li>
+			<li><a href="#cssFiles">CSS Files and Structure</a></li>
+			<li><a href="#javascript">JavaScript</a></li>
+			<li><a href="#psdFiles">PSD Files</a></li>
+			<li><a href="#php">PHP Code Explanation</a></li>
+			<li><a href="#mobile">Mobile optimisation</a></li>
+			<li><a href="#credits">Sources and Credits</a></li>
+		</ol>
+		
+		<hr>
+		
+		<h3 id="htmlStructure"><strong>A) HTML Structure</strong> - <a href="#toc">top</a></h3>
+		<p>
+		This theme is a simple 1 column layout. It is also a 1 page theme - the content for every tab is stored within index.html. The main content is within a <code>section</code> with the class "content". The main headings sit within the <code>header</code> tag, the introductory content (avatar / bio) are within a <code>section</code> with the class "intro" and the footer contents sit inside the <code>footer</code> tag.
+		</p>
+		
+		<p>Here's the general HTML structure:</p>
+		
+		<img src="assets/images/htmlstructure.png" alt="HTML Structure" />
+		
+		<p>If you would like to edit the color, font, or style of any elements in one of these columns, you would do the following:</p>
+
+<pre>	.content a {
+		color: #someColor;
+	} 
+</pre>
+
+		<p>If you find that your new style is not overriding, it is most likely because of a specificity problem. Scroll down in your CSS file and make sure that there isn't a similar style that has more weight.</p>
+
+		<p>I.E.</p>
+
+<pre>	.wrap .content a {
+		color: #someColor;
+	}
+</pre>
+
+		<p>So, to ensure that your new styles are applied, make sure that they carry enough "weight" and that there isn't a style lower in the CSS file that is being applied after yours.</p> 
+
+		<hr>
+
+		<h3 id="cssFiles"><strong>B) CSS Files and Structure</strong> - <a href="#toc">top</a></h3>
+
+		<p>There are several css files included with vCard. They are all identical except for the colour options they create. Default.css is loaded by default which is the creamy "Cappuccino" colour theme.</p> 
+		
+		<p>The rest of the css files should be self explanatory as to which colour scheme they load.</p> 
+
+		<p>To change the colour scheme you need to open up index.html and look at line 26 where <code>default.css</code> is referenced. To change the colour scheme simply replace <code>default.css</code> with one of the other stylesheets, for example <code>blue.css</code> which will load the blue colour scheme.</p>
+		
+		<h4>Custom typography</h4>
+		<p>vCard also uses a Custom Google font in the header. This can easily be changed. You can find a full list of available Google fonts <a href="http://www.google.com/webfonts">here</a> with instructions on how to install them. Just remember to remove the reference to the Lobster font from index.html on line 23 and replace it with your preferred choice.</p>
+</pre>
+
+		<hr>
+		
+		<h3 id="javascript"><strong>C) JavaScript</strong> - <a href="#toc">top</a></h3>
+		
+		<p>This theme imports several Javascript files.</p>
+		
+		<ol>
+			<li><a href="http://www.modernizr.com/">Modernizr</a></li>
+			<li>jQuery</li>
+			<li>plugins.js</li>
+			<li><a href="http://fancybox.net/">Fancybox</a></li>
+			<li>script.js</li>
+		</ol>
+		  
+		<ol>
+			<li>Modernizr is an HTML5 shim which enables us to use HTML5 tags with the knowledge that they will be supported even in Internet Explorer. It also includes other additions which allow us to ensure graceful degradation of modern CSS3 techniques.</li>
+			<li>jQuery is a Javascript library that greatly reduces the amount of code that you must write.</li>
+			<li>plugins.js includes several small jQuery plugins such as <a href="http://onehackoranother.com/projects/jquery/tipsy/">Tipsy Tooltips</a> and an accordion tab system</li>
+			<li>Fancybox is a large jQuery plugin which creates lightbox popups. It utilises various additional jQuery plugins and a library of images so we kept it separate from plugins.js</li>
+			<li>script.js loads the plugins inside plugins.js. Should you want to modify the behaviour of tipsy or fancybox for example, you should look in this file as well as referring to the relevant documentation..</li>
+		</ol>
+		
+		<hr>
+		
+		<h3 id="psdFiles"><strong>D) PSD Files</strong> - <a href="#toc">top</a></h3>
+		
+		<p>There are no PSD files with vCard simply because all the delicious styles have been created purely with CSS3. That means the entire look and feel can be adjusted via the stylesheet without having to open a hefty image editing application</p>
+		
+		<hr>
+		
+		<h3 id="php"><strong>E) PHP</strong> - <a href="#toc">top</a></h3>
+		
+		<p>vCard comes with a fully functional AJAX contact form baked-in which you will need to configure.</p>
+		
+		<p>There's only one step - change the email address so that all contacts are sent to you and it's done like so: </p>
+		<p>Open up <code>contact.php</code> and on line 3 change <code>you@yourdomain.com</code> to your email address then save the file</p>
+		
+		<hr>
+		
+		<h3 id="mobile"><strong>F) Mobile</strong> - <a href="#toc">top</a></h3>
+		
+		<p>vCard has full mobile support right out the box. There's nothing you need to do to activate or configure this. There are 3 views.</p>
+		
+		<ol>
+			<li>Desktop / iPad view</li>
+			<li>Landscape iPhone view</li>
+			<li>Portrait iPhone view</li>
+		</ol>
+		
+		<p>You should just be aware of how to target specific devices.</p>
+		
+		<p>To edit styles for the default desktop / iPad view open default.css and look for line 422. This is where the bulk of the themes style is located and is the best location to add styles which you want to affect every device.</p>
+		
+		<p>Scroll down to line 835 and you'll see a media query for landscape mobile devices. If you want to add styles which only appear when someone is browsing on an iPhone in landscape mode, add them here.</p>
+		
+		<p>Finally scroll to line 892 and you'll see another media query for mobile devices in portrait mode. If you want to add styles which only appear when someone is browsing on an iPhone in portrait mode, add them here.</p>
+		
+		<hr>
+		
+		<h3 id="credits"><strong>G) Sources and Credits</strong> - <a href="#toc">top</a></h3>
+		
+		<p>I've used the following images, icons or other files as listed.
+		
+		<ul>
+			<li>Imagery from <a href="http://sxc.hu/">sxc</a></li>
+			<li><a href="http://www.modernizr.com/">Modernizr</a></li>
+			<li><a href="http://fancybox.net/">Fancybox</a> jQuery plugin</li>
+			<li><a href="http://onehackoranother.com/projects/jquery/tipsy/">Tipsy Tooltips</a> jQuery plugin</li>
+		</ul>
+		
+		<hr>
+		
+		<p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p> 
+		
+		<p class="append-bottom alt large"><a href="http://ninetydegrees.co" title="ninetydegrees WordPress development"><img src="assets/images/ninety.png" alt="ninetydegrees" /></a></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>
