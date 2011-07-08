@@ -9,32 +9,37 @@ class Home extends CI_Controller {
 		$tid = $this->uri->segment(1);
 		$this->load->helper("form");
 		$data['title'] = "EasyTags Mobile";
-		if(!is_numeric($tid)){
+		$this->session->unset_userdata("tag_id");
+		$this->session->set_userdata("tag_id", $tid);
+		if($tid == null){
+			//load up splash
+			$this->load->view('splash', $data);
+		}elseif(!is_numeric($tid)){
 			//URL is using the username
 			$user_info = $this->user->get_all_info($tid);
-			$tid = $user_info[0]->tag_id;  
 			
+			$tid = $user_info[0]->tag_id;  
+			$data['info'] = $user_info;
+			$data['hours'] = $hours;
+			$data['social'] = $social;
+			$this->load->view('home', $data);
 		}else{
 			$user_info = $this->user->get_all_info($tid);
+			$data['info'] = $user_info;
+			$data['hours'] = $hours;
+			$data['social'] = $social;
+			$this->load->view('home', $data);
 		}
 			
 		
-		
-		$this->session->unset_userdata("tag_id");
-		$this->session->set_userdata("tag_id", $tid);
-		
-		$hours = $this->user->get_hours($tid);
-		$social = $this->user->get_social($tid);
-		$data['info'] = $user_info;
-		$data['hours'] = $hours;
-		$data['social'] = $social;
+	
 		if($user_info == null){
 		
-			redirect("http://".$_SERVER['SERVER_NAME']."/admin/".$tid);
+			//redirect("http://".$_SERVER['SERVER_NAME']."/admin/".$tid);
 		}
 		
 		//$user_social = $this->user->get_social($uid);
-		$this->load->view('home', $data);
+		//$this->load->view('home', $data);
 	}
 	
 	private function allqr()

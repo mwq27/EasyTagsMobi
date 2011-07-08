@@ -46,8 +46,85 @@
 		'transitionOut'	: 'elastic'
 	});
 	
+	if($("form#regform")[0]){
+		
+			$("form#regform").validate({
+				rules:{
+				
+						name: "required",
+						email: {
+							required: true,
+							email: true,
+							remote:{
+								url:	"/admin/check_email/",
+								type:	"post"
+							}
+						},
+						password: {
+							required: true,
+							minlength: 5
+						},
+						confirm_password: {
+							required: true,
+							minlength: 5,
+							equalTo: "#password"
+						},
+						bname: {
+							required: true
+							
+						},
+						tagline: {
+							required: true
+							
+						},
+						tagid:	{
+							required: true,
+							remote:{
+								url:	"/admin/check_tagid",
+								type:	"post"
+							}
+						}
+			},
+			messages: {
+				name: "Please enter your full name",
+				bname: "Please enter your business name",
+				tagline: "Please enter your tagline",
+				password: {
+					required: "Please provide a password",
+					minlength: "Your password must be at least 5 characters long"
+				},
+				confirm_password: {
+					required: "Please provide a password",
+					minlength: "Your password must be at least 5 characters long",
+					equalTo: "Please enter the same password as above"
+				},
+				email: {
+					required:"Please enter a valid email address",
+					email:"Can you enter a valid email address",
+					remote: jQuery.format("{0} is already in use")
+				},
+				
+				tagid:	{
+					required:"Please enter a valid Tag ID",
+					remote: jQuery.format("{0} is already in use")
+				}
+				
+			},
+			success: function(label) {
+			// set &nbsp; as text for IE
+		
+			label.html("&nbsp;").addClass("checked");
+			
+		}
+				
+		});
+		
+		
+	}
 	
-        $('#multipss').multipage();
+		if($("#multipss").length > 0){
+        	$('#multipss').multipage();
+      	}
 			
 		function transition(from,to) {
 			$(from).fadeOut('fast',function(){$(to).fadeIn('fast');});

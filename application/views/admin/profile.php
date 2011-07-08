@@ -251,7 +251,7 @@ foreach($hours as $row){
 				 <span> To </span>
 				<?
 				
-				echo form_dropdown('thu-start', $Options, $thuClose);
+				echo form_dropdown('thu-end', $Options, $thuClose);
 				
 				?>
 				

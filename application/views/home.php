@@ -25,7 +25,9 @@
 		<h4><?=$tagline?></h4>
 		<?php 
 			if($this->session->userdata("logged_in") == true){
+				echo "<p>You are in the profile setup</p>";
 				echo "<h4><a href='/admin/logout'>Logout</a></h4>";
+				
 				
 			}
 		?>
@@ -38,10 +40,11 @@
 		<section class="intro vcard">
 		
 			<div class="floatLeft">
-				
-				<img id="logo-img" src="<?=$logo?>" class="photo" alt="Ninety Degrees" />
-				
-			
+				<? if($logo){ ?>
+					<img id="logo-img" src="<?=$logo?>" class="photo" alt="<?=$business?>" />
+				<? }else{ ?>
+					<img id="logo-img" src="/images/icons/Album.png" class="photo" alt="No Logo Available" />
+				<? } ?>
 				<?=$about_s?>
 			</div>
 			
@@ -70,8 +73,8 @@
 					
 			<ul class="tabs">
 	                    
-	            <li><a href="#tab1">Social</a></li>
-	            <li><a href="#tab2">About</a></li>
+	            <li><a href="#tab1">My Profile</a></li>
+	            <li><a href="#tab2">Social Networks</a></li>
 	            <li><a href="#tab3">Contact</a></li>
 	            <li><a href="#tab4">Work</a></li>
 				<? if($this->session->userdata("logged_in") == true){?><li><a href="#tab5">Profile</a></li><? } ?>
@@ -79,8 +82,20 @@
 	        </ul>
 	        
 	        <div class="tab_container">
-	        
-	            <div id="tab1" class="tab_content social">
+	        	
+	        	<div id="tab1" class="tab_content">
+	            	
+	            	<h2>Finish Your Profile</h2>
+	            	<? 
+	            		$data['tagid'] = $tagid;
+						$data['info'] = $info;
+	            		$this->load->view("admin/profile", $data); ?>
+	            	
+	            	
+	            	
+	            </div><!--/tab5-->
+	            
+	            <div id="tab2" class="tab_content social">
 	               
 	                <ul>
 					<?php
@@ -126,15 +141,15 @@
 	                	
 	                </ul>
 	                
-	            </div><!--/tab1-->
+	            </div><!--/tab2-->
 	            
-	            <div id="tab2" class="tab_content about">
+	            <div id="tab5" class="tab_content about">
 	                
 	                <h2>About</h2>
 	               	<p><?=$about_l?></p> 
 	               
 	                
-	            </div><!--/tab2-->
+	            </div><!--/tab5-->
 	            
 	            <div id="tab3" class="tab_content contact">
 	                
@@ -218,17 +233,7 @@
 	            	
 	            </div><!--/tab4-->
 				<? if($this->session->userdata("logged_in") == true){?>
-				<div id="tab5" class="tab_content">
-	            	
-	            	<h2>Finish Your Profile</h2>
-	            	<? 
-	            		$data['tagid'] = $tagid;
-						$data['info'] = $info;
-	            		$this->load->view("admin/profile", $data); ?>
-	            	
-	            	
-	            	
-	            </div><!--/tab5-->
+				
 	            
 	            <div id="tab6" class="tab_content">
 	            	

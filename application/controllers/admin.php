@@ -308,6 +308,33 @@ class Admin extends CI_Controller {
 		echo $shortpathThmb;
 		//echo "$shortpath"1;
 	}
+
+
+	function check_email(){
+		$this->load->helper(array('form', 'url'));
+		$this->load->model('user');
+		
+		$email = $this->input->post("email", TRUE);
+		
+		$check = $this->user->check_email($email);
+		if($check){
+			echo "true";
+		}else{
+			echo $check;
+		}
+		
+	}
+	
+	function check_tagid(){
+		$this->load->helper(array('form', 'url'));
+		$this->load->model('user');
+		
+		$tag = $this->input->post("tagid", TRUE);
+		
+		$check = $this->user->check_tagid($tag);
+		
+		echo $check;
+	}
 	
 
 }

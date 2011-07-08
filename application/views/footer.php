@@ -7,9 +7,10 @@
 	
 	<!-- Javascript at the bottom for fast page loading -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-	<script src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
-	<script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<script src="/js/libs/jquery.mousewheel-3.0.4.pack.js"></script>
+	<script src="/js/libs/jquery.fancybox-1.3.4.pack.js"></script>
 	<script src="/js/libs/jquery.multipage.js"></script>
+	<script src="/js/libs/jquery.validate.min.js"></script>
 	<script src="/js/plugins.js"></script>
 	<script src="/js/script.js"></script>
 	

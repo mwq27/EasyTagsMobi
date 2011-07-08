@@ -1,6 +1,6 @@
 <form action="/admin/register" method="post">
 	<p class="input">
-				<label for="name">Name</label>
+				<label for="name">Full Name</label>
 				<input  type="text" name="name" value="<? echo set_value('name'); ?>"   id="name" class="user-input required text"/>
 				<label  id="fname-error" class="error">Please enter your name</label>
 			</p>

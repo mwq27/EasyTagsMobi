@@ -20,9 +20,8 @@
 			<ul class="tabs">
 	                    
 	            <li><a href="#tab1">Login</a></li>
-	            <li><a href="#tab2">Register</a></li>
-	           
-	    
+	            <li><a href="#tab2">Create A New Account</a></li>
+	           	    
 	        </ul>
 	        
 	        <div class="tab_container">
