@@ -107,7 +107,7 @@ class Admin extends CI_Controller {
 		$this->form_validation->set_rules('name', 'Name', 'trim|required');
 		$this->form_validation->set_rules('email', 'Email address', 'trim|required');
 		$this->form_validation->set_rules('password', 'password', 'trim|required');
-		$this->form_validation->set_rules('password_conf', 'Password confirmation', 'trim|required|matches[password]');
+		$this->form_validation->set_rules('confirm_password', 'Password confirmation', 'trim|required|matches[password]');
 		if ($this->form_validation->run() == FALSE){
 			
 			 $data['title'] = 'Register | EasyTags Mobile';
@@ -333,7 +333,11 @@ class Admin extends CI_Controller {
 		
 		$check = $this->user->check_tagid($tag);
 		
-		echo $check;
+		if($check){
+			echo "true";
+		}else{
+			echo $check;
+		}
 	}
 	
 

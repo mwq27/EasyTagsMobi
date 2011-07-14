@@ -23,7 +23,7 @@
 			
 			<p class="input">
 				<label for="password_conf">Confirm Password</label>
-				<input type="password" name="password_conf"  id="confirm_password" class="user-input required text"/>
+				<input type="password" name="confirm_password"  id="confirm_password" class="user-input required text"/>
 				<label id="fname-error" class="error">Please enter your first name</label>
 			</p>
 				
@@ -34,14 +34,14 @@
 			</p>
 			
 			<p class="input">
-				<label for="tagline">Tagline</label>
+				<label for="tagline">Tagline (ex., "You haven't tried the best, until you've had ours!")</label>
 				<input type="text" name="tagline"  id="tagline" value="<? echo set_value('tagline'); ?>"  class="user-input required text"/>
 				<label id="lname-error" class="error">Please enter your last name</label>
 			</p>
 			
 			<? if($notag){ ?>
 			<p class="input">
-				<label for="tagid">Tag Id (Must be 5 digits, ex: 00024)</label>
+				<label for="tagid">Tag Id (Must be 5 digits, ex., 00024)</label>
 				<input type="text" name="tagid" id="tagid" value="<? echo set_value('tagid'); ?>"  class="user-input required text"/>
 				<label id="tag_id-error" class="error">Please enter your Tag Id</label>
 			</p>

@@ -18,4 +18,8 @@
 			<p class="input">
 				<input type="submit" value="Submit Information" class="button submit" id="profile-submit">
 			</p>
+			
+			<p>
+				<a href="#">Forgot your password?</a>
+			</p>
 </form>

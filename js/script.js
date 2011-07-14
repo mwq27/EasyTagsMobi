@@ -80,7 +80,7 @@
 						tagid:	{
 							required: true,
 							remote:{
-								url:	"/admin/check_tagid",
+								url:	"/admin/check_tagid/",
 								type:	"post"
 							}
 						}
